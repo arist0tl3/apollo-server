@@ -68,7 +68,7 @@ npm install micro micro-cors apollo-server-micro graphql
 2) `index.js`
 
 ```js
-const cors = require('micro-cors')(); // highlight-line
+const cors = require('micro-cors')();
 const { ApolloServer, gql } = require('apollo-server-micro');
 
 const typeDefs = gql`
@@ -86,7 +86,7 @@ const resolvers = {
 };
 
 const apolloServer = new ApolloServer({ typeDefs, resolvers });
-const handler = apolloServer.createHandler(); // highlight-line
+const handler = apolloServer.createHandler();
 
 module.exports = cors((req, res) => {
   if (req.method === 'OPTIONS') {
@@ -95,7 +95,7 @@ module.exports = cors((req, res) => {
   }
 
   return handler(req, res);
-}); // highlight-line
+});
 ```
 
 3) `package.json`
